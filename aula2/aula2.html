@@ -4,82 +4,88 @@
     <title>Aula 2 - Exercícios</title>
   </head>
   <body>
-    <table>
+    <form>
+      <table>
 
-      <tr>
-        <td><p>Nome completo: </p>
-        <td><form>
-          <input type="text" id="name" name="name">
-        </td></form>
-      </tr>
+        <tr>
+          <td style="color:#008434;"><b><label for="nome">Nome completo: </label><b></td>
+          <td><input type="text" id="nome" nome="nome"></td>
+        </tr>
 
-      <tr>
-        <td><p>Login: </p>
-        <td><form>
-          <input type="text" id="login" name="name">
-        </td></form>
-      </tr>
+        <tr>
+          <td style="color:#008434;"><b><label for="login">Login: </label></b></td>
+          <td><input type="text" id="login" login="login"></td>
+        </tr>
 
-      <tr>
-        <td><p>Senha: </p>
-        <td><form>
-          <input type="password" id="senha" name="senha">
-        </td></form>
-      </tr>
+        <tr>
+          <td style="color:#008434;"><b><label for="senha">Senha: </label></b></td>
+          <td><input type="password" id="senha" senha="senha"></td>
+        </tr>
 
-      <tr>
-        <td>
-          <p>Em que moeda prefere receber o salário?</p>
-          <form>
-            <input type="radio" id="real" name="fav_moeda" value="Real">
-            <label for="real">Real</label><br>
-            <input type="radio" id="dolar" name="fav_moeda" value="Dolar">
-            <label for="dolar">Dolar</label><br>
-            <input type="radio" id="euro" name="fav_moeda" value="Euro">
-            <label for="euro">Euro</label><br>
-            <input type="radio" id="yes" name="fav_moeda" value="Yen">
-            <label for="yen">Yen</label>
-         </form>
-        </td>
-      </tr>
+        <tr>
+          <td style="color:#008434;"><b><p>Em que moeda prefere receber o salário?</p></b></td>
+        </tr>
 
-      <tr>
-        <td>
-          <p>Selecione as linguagens que já estudou:</p>
-          <form>
-            <input type="checkbox" id="c" name="c" value="c">
-            <label for="c"> C</label><br>
-            <input type="checkbox" id="cpp" name="cpp" value="cpp">
-            <label for="cpp"> C++</label><br>
-            <input type="checkbox" id="html" name="html" value="html">
-            <label for="html"> HTML</label><br>
-            <input type="checkbox" id="java" name="java" value="java">
-            <label for="java"> Java</label><br>
-            <input type="checkbox" id="js" name="js" value="js">
-            <label for="js"> Javascript</label><br>
-            <input type="checkbox" id="python" name="python" value="python">
-            <label for="python"> Python</label><br>
-         </form>
-        </td>
-      </tr>
+        <tr>
+          <td style="color:#ff0000;"><i><input type="radio" id="real" name="fav_moeda" value="Real">
+          <label for="real">Real</label><br>
+          <input type="radio" id="dolar" name="fav_moeda" value="Dolar">
+          <label for="dolar">Dolar</label><br>
+          <input type="radio" id="euro" name="fav_moeda" value="Euro">
+          <label for="euro">Euro</label><br>
+          <input type="radio" id="yes" name="fav_moeda" value="Yen">
+          <label for="yen">Yen</label><i></td>
+        </tr>
 
-      <tr>
-        <td><p>Foto atual: </p>
-        <td><form>
-          <input type="file" id="file" name="file">
-        </td></form>
-      </tr>
-      <tr>
-        <td><p>test row 1</p></td>
-        <td><p>test column 2</p></td>
-      </tr>
+        <tr>
+          <td style="color:#008434;"><b><p>Selecione as linguagens que já estudou:</p></b></td>
+        </tr>
 
-      <tr>
-        <td><p>test row 2</p></td>
-        <td><p>test column 2</p></td>
-      </tr>
+        <tr>
+          <td style="color:#ff0000;"><i><input type="checkbox" id="c" name="c" value="c">
+          <label for="c"> C</label><br>
+          <input type="checkbox" id="cpp" name="cpp" value="cpp">
+          <label for="cpp"> C++</label><br>
+          <input type="checkbox" id="html" name="html" value="html">
+          <label for="html"> HTML</label><br>
+          <input type="checkbox" id="java" name="java" value="java">
+          <label for="java"> Java</label><br>
+          <input type="checkbox" id="js" name="js" value="js">
+          <label for="js"> Javascript</label><br>
+          <input type="checkbox" id="python" name="python" value="python">
+          <label for="python"> Python</label><br></i></td>
+        </tr>
 
-    </table>
+        <tr>
+          <td style="color:#008434;"><b><label for="file">Foto atual: </b></label>
+          <td style="color:#ff0000;"><i><input type="file" id="file" name="file"></i></td>
+        </tr>
+
+        <tr>
+          <td style="color:#008434;"><b><label for="assuntos">Seus assuntos favoritos:</label></b><br>
+          <select name="assuntos" id="assuntos" multiple>
+            <option value="artes">Artes</option>
+            <option value="esportes">Esportes</option>
+            <option value="games">Games</option>
+            <option value="musicas">Músicas</option>
+          </select></td>
+        </tr>
+
+        <tr>
+          <td style="color:#008434;"><b>
+            <label for="comentarios">Gostaria de fazer comentários?</label><br>
+            <textarea id="comentarios" name="comentarios" rows="4" cols="50">Faça seus comentários aqui
+            </textarea>
+          </b></td>
+        </tr>
+
+        <tr>
+          <td><input type="submit" value="Enviar"></td>
+          <td><input type="reset" value="Limpar"></td>
+        </tr>
+
+      </table>
+    </form>
   </body>
 </html>
 
@@ -88,5 +94,4 @@ COLORS
 
 Red: #ff0000
 Green: #008434
-
 -->
