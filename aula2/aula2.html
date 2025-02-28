@@ -4,6 +4,39 @@
     <title>Aula 2 - Exercícios</title>
     <style>
       body {font-family: arial;}
+
+      .form {
+        color: #008434;
+        font-weight: bold;
+      }
+
+      .content {
+        color:#ff0000;
+        font-style: italic;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      ::placeholder {
+        color:#ff0000;
+        opacity: 1;
+        font-style: italic;
+      }
+
+      select[multiple] {
+        color:#ff0000;
+        opacity: 1;
+        font-style: italic;
+      }
+
+      input[type="file"] {
+        color:#ff0000;
+        opacity: 1;
+        font-style: italic;
+      }
+
     </style>
   </head>
   <body>
@@ -11,41 +44,41 @@
       <table>
 
         <tr>
-          <td style="color:#008434;"><b><label for="nome">Nome completo: </label><b></td>
-          <td><input type="text" id="nome" nome="nome"></td>
+          <td class="form"><label for="nome">Nome completo: </label></td>
+          <td><input type="text" style="width: 300px;" id="nome" nome="nome"></td>
         </tr>
 
         <tr>
-          <td style="color:#008434;"><b><label for="login">Login: </label></b></td>
-          <td><input type="text" id="login" login="login"></td>
+          <td class="form"><label for="login">Login: </label></td>
+          <td><input type="text" style="width: 125px;" id="login" login="login"></td>
         </tr>
 
         <tr>
-          <td style="color:#008434;"><b><label for="senha">Senha: </label></b></td>
-          <td><input type="password" id="senha" senha="senha"></td>
+          <td class="form"><label for="senha">Senha: </label></td>
+          <td><input type="password" style="width: 125px;" id="senha" senha="senha"></td>
         </tr>
 
         <tr>
-          <td style="color:#008434;"><b><p>Em que moeda prefere receber o salário?</p></b></td>
+          <td class="form"><p>Em que moeda prefere receber o salário?</p></td>
         </tr>
 
         <tr>
-          <td style="color:#ff0000;"><i><input type="radio" id="real" name="fav_moeda" value="Real">
+          <td class="content"><input type="radio" id="real" name="fav_moeda" value="Real">
           <label for="real">Real</label><br>
           <input type="radio" id="dolar" name="fav_moeda" value="Dolar">
           <label for="dolar">Dolar</label><br>
           <input type="radio" id="euro" name="fav_moeda" value="Euro">
           <label for="euro">Euro</label><br>
           <input type="radio" id="yes" name="fav_moeda" value="Yen">
-          <label for="yen">Yen</label><i></td>
+          <label for="yen">Yen</label></td>
         </tr>
 
         <tr>
-          <td style="color:#008434;"><b><p>Selecione as linguagens que já estudou:</p></b></td>
+          <td class="form"><p>Selecione as linguagens que já estudou:</p></td>
         </tr>
 
         <tr>
-          <td style="color:#ff0000;"><i><input type="checkbox" id="c" name="c" value="c">
+          <td class="content"><input type="checkbox" id="c" name="c" value="c">
           <label for="c"> C</label><br>
           <input type="checkbox" id="cpp" name="cpp" value="cpp">
           <label for="cpp"> C++</label><br>
@@ -56,16 +89,16 @@
           <input type="checkbox" id="js" name="js" value="js">
           <label for="js"> Javascript</label><br>
           <input type="checkbox" id="python" name="python" value="python">
-          <label for="python"> Python</label><br></i></td>
+          <label for="python"> Python</label><br></td>
         </tr>
 
         <tr>
-          <td style="color:#008434;"><b><label for="file">Foto atual: </b></label>
-          <td style="color:#ff0000;"><i><input type="file" id="file" name="file"></i></td>
+          <td class="form"><label for="file">Foto atual: </label>
+          <td class="content"><input type="file" id="file" name="file"></td>
         </tr>
 
         <tr>
-          <td style="color:#008434;"><b><label for="assuntos">Seus assuntos favoritos:</label></b><br>
+          <td class="form"><label for="assuntos">Seus assuntos favoritos:</label><br>
           <select name="assuntos" id="assuntos" multiple>
             <option value="artes">Artes</option>
             <option value="esportes">Esportes</option>
@@ -75,11 +108,11 @@
         </tr>
 
         <tr>
-          <td style="color:#008434;"><b>
+          <td class="form">
             <label for="comentarios">Gostaria de fazer comentários?</label><br>
             <textarea id="comentarios" name="comentarios" rows="4" cols="50" placeholder="Faça seus comentários aqui">
             </textarea>
-          </b></td>
+          </td>
         </tr>
 
         <tr>
@@ -93,8 +126,10 @@
 </html>
 
 <!--
+
 COLORS
 
 Red: #ff0000
 Green: #008434
+
 -->
