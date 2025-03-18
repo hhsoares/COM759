@@ -1,9 +1,30 @@
-head {
+body {
   background-color: black;
+}
+
+fieldset {
+  border:none;
+  text-align: center;
+}
+
+.buttons {
+  width: 100px;
+}
+
+input {
+  text-align: center;
+  color:#black;
+  height: 10%;
+  width: 35%;
+  font-size: 16px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 h1 {
   font-family: 'Space Mono';
+  font-weight: bold;
+  font-size: 160px;
   color: white;
-  background-color: black;
+  text-align: center;
 }
