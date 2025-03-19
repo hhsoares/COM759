@@ -8,11 +8,11 @@ function validateForm() {
 
   let ra_ano = ra.slice(0, 4);
 
-  console.log(ra, nome, email, senha);
-  console.log(ra_ano);
+  //console.log(ra, nome, email, senha);
+  //console.log(ra_ano);
 
-  console.log(`${ra.length}`);
-  console.log(`${senha.length}`);
+  //console.log(`${ra.length}`);
+  //console.log(`${senha.length}`);
 
   if ( ra === "" || nome === "" || email === "" || senha === "" ) {
     alert("Preencha todos os campos!");
@@ -51,3 +51,24 @@ function validateForm() {
 
   return true;
 }
+
+document.getElementById("form").addEventListener("submit", function(event) {
+
+  // Check if form is valid
+  if (validateForm()) {
+    // Create FormData object
+    let formData = new FormData(this);
+
+    // Convert FormData to JSON
+    let jsonObject = {};
+    formData.forEach((value, key) => {
+        jsonObject[key] = value;
+    });
+
+    // Convert JSON object to JSON string
+    let jsonString = JSON.stringify(jsonObject);
+    
+    // Output JSON string to console
+    console.log(jsonString);
+  }
+});
