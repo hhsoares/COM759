@@ -7,18 +7,13 @@ fieldset {
   text-align: center;
 }
 
-.buttons {
-  width: 100px;
-  text-align: center;
-  mading: auto;
-}
-
 input {
   text-align: center;
   color:#black;
   font-size: 16px;
   padding-top: 5px;
   padding-bottom: 5px;
+  font-family: 'Space Mono';
 }
 
 h1 {
