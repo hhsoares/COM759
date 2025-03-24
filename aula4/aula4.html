@@ -10,7 +10,8 @@
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
-    <form id="form" action="" method="post">
+<!--    <form id="form" action="" method="post"> -->
+    <form id="form" onsubmit="return validateForm()" novalidate>
       <table border="0">
         <tr>
           <td>Nome:</td>
@@ -41,10 +42,12 @@
           <td><input id="senha" type="password" name="senha" value="" size="20"/></td>
         </tr>
         <tr>
-          <td><input id="submit" type="button" value="Enviar" /></td>
+          <!--<td><input id="submit" type="button" value="Enviar" /></td>-->
+          <td><input type="submit" type="button" value="Enviar" /></td>
         </tr>
         </table>
       </form>
     <p id="erro"></p>
+    <script src="script.js"></script>
   </body>
 </html>
