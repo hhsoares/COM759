@@ -36,21 +36,25 @@
     <script> 
       console.log("Script Carregado");
       $(document).ready(function() {
+
         $("#limpar").click(function(event) {
           event.preventDefault();
           $("#form").trigger("reset");
-          $("#error-message").text(""); // Clear the error message when resetting
+          $("#error-message").text("");
         });
 
         $("#enviar").click(function(event) {
           event.preventDefault();
-          if ($("#nome").val() === "") {
-            $("#error-message").text("Preencha o nome!"); // Display error message
+          
+          var nome = $("#nome").val();
+          if (nome === "" || !/^[a-zA-Z\s]+$/.test(nome) || nome.split(/\s+/).length < 2) {
+            $("#error-message").text("Nome inválido! Deve ter ao menos duas palavras e não pode conter números.");
             return false;
           } else {
-            $("#error-message").text(""); // Clear the error message if the name is valid
+            $("#error-message").text("");
           }
         });
+  
       });
     </script>
   </head>
