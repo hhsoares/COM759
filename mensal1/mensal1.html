@@ -97,7 +97,6 @@
               isValid = false;
             }
     
-            // Validate E-mail field
             var email = $("#email").val();
             if (email === "" || !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/.test(email)) {
               errorMessage += "E-mail inválido! Deve conter apenas letras, um @, e pelo menos duas palavras separadas por ponto.<br>";
@@ -105,7 +104,6 @@
               isValid = false;
             }
     
-            // Validate Senha field
             var senha = $("#senha").val();
             var senhaRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{12,}$/;
             if (senha === "" || !senhaRegex.test(senha)) {
@@ -115,12 +113,10 @@
             }
           }
     
-          // Display error message and prevent form submission if invalid
           if (!isValid) {
             $("#error-message").html(errorMessage);
           } else {
-            $("#error-message").text(""); // Clear error message
-            // Proceed with form submission (you can use .submit() here if needed)
+            $("#error-message").text("");
           }
     
           return isValid;
