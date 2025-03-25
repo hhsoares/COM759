@@ -38,7 +38,10 @@
       console.log("Script Carregado");
 
       $(document).ready(function() {
-        $("#form").hide()
+        $("#limpar").click(function() {
+          event.preventDefault();
+          $("#form").hide()
+        });
       });
     </script>
   </head>
@@ -83,7 +86,8 @@
 
         <tr>
           <td><button id="enviar" class="submit-btn" type="submit">Enviar</button></td>
-          <td><button id="limpar" type="reset">Limpar</button></td>
+          <td><button id="limpar">Limpar</button></td>
+          <td><button id="test">Test</button></td>
         </tr>
 
       </table>
