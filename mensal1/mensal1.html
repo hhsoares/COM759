@@ -33,30 +33,100 @@
       button{font-weight: bold;}
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script> 
+    <script>
       console.log("Script Carregado");
-      $(document).ready(function() {
-
-        $("#limpar").click(function(event) {
+    
+      $(document).ready(function () {
+        $("#limpar").click(function (event) {
           event.preventDefault();
           $("#form").trigger("reset");
           $("#error-message").text("");
+          $(".error").removeClass("error");
         });
-
-        $("#enviar").click(function(event) {
+    
+        $("#enviar").click(function (event) {
           event.preventDefault();
-          
-          var nome = $("#nome").val();
-          if (nome === "" || !/^[a-zA-Z\s]+$/.test(nome) || nome.split(/\s+/).length < 2) {
-            $("#error-message").text("Nome inválido! Deve ter ao menos duas palavras e não pode conter números.");
-            return false;
+          let isValid = true;
+          let errorMessage = "";
+    
+          $("#error-message").text("");
+          $(".error").removeClass("error");
+    
+          var fields = ["#nome", "#cpf", "#rg", "#ano_entrada", "#ano_saida", "#email", "#senha"];
+          let allFieldsFilled = fields.every(function (field) {
+            return $(field).val().trim() !== "";
+          });
+    
+          if (!allFieldsFilled) {
+            errorMessage = "Todos os campos devem ser preenchidos.<br>";
+            $(".error").removeClass("error");
+            isValid = false;
           } else {
-            $("#error-message").text("");
+            var nome = $("#nome").val();
+            if (nome === "" || !/^[a-zA-Z\s]+$/.test(nome) || nome.split(/\s+/).length < 2) {
+              errorMessage += "Nome inválido! Deve ter ao menos duas palavras e não pode conter números.<br>";
+              $("#nome").addClass("error");
+              isValid = false;
+            }
+    
+            var cpf = $("#cpf").val();
+            if (cpf === "" || !/^\d{11}$/.test(cpf)) {
+              errorMessage += "CPF inválido! O CPF deve ter 11 dígitos.<br>";
+              $("#cpf").addClass("error");
+              isValid = false;
+            }
+    
+            var rg = $("#rg").val();
+            if (rg === "" || !/^\d{7,}$/.test(rg)) {
+              errorMessage += "RG inválido! O RG deve ter pelo menos 7 dígitos.<br>";
+              $("#rg").addClass("error");
+              isValid = false;
+            }
+    
+            var anoEntrada = $("#ano_entrada").val();
+            var anoSaida = $("#ano_saida").val();
+            var currentYear = 2025;
+            
+            if (anoEntrada === "" || !/^\d{4}$/.test(anoEntrada) || parseInt(anoEntrada) > currentYear) {
+              errorMessage += "Ano de entrada inválido! Deve ser um número de 4 dígitos e não pode ser posterior a 2025.<br>";
+              $("#ano_entrada").addClass("error");
+              isValid = false;
+            } else if (anoSaida !== "" && (!/^\d{4}$/.test(anoSaida) || parseInt(anoSaida) > currentYear || parseInt(anoEntrada) > parseInt(anoSaida))) {
+              errorMessage += "Ano de saída inválido ou ano de entrada posterior ao de saída.<br>";
+              $("#ano_saida").addClass("error");
+              isValid = false;
+            }
+    
+            // Validate E-mail field
+            var email = $("#email").val();
+            if (email === "" || !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/.test(email)) {
+              errorMessage += "E-mail inválido! Deve conter apenas letras, um @, e pelo menos duas palavras separadas por ponto.<br>";
+              $("#email").addClass("error");
+              isValid = false;
+            }
+    
+            // Validate Senha field
+            var senha = $("#senha").val();
+            var senhaRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])[A-Za-z\d!@#$%^&*(),.?":{}|<>]{12,}$/;
+            if (senha === "" || !senhaRegex.test(senha)) {
+              errorMessage += "Senha inválida! Deve ter pelo menos 12 caracteres, contendo pelo menos uma letra maiúscula, um dígito e um caractere especial.<br>";
+              $("#senha").addClass("error");
+              isValid = false;
+            }
           }
+    
+          // Display error message and prevent form submission if invalid
+          if (!isValid) {
+            $("#error-message").html(errorMessage);
+          } else {
+            $("#error-message").text(""); // Clear error message
+            // Proceed with form submission (you can use .submit() here if needed)
+          }
+    
+          return isValid;
         });
-  
       });
-    </script>
+    </script>    
   </head>
   <body>
     <form id="form">
