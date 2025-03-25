@@ -39,30 +39,19 @@
         $("#limpar").click(function(event) {
           event.preventDefault();
           $("#form").trigger("reset");
-          $("#error-message").text("");
+          $("#error-message").text(""); // Clear the error message when resetting
         });
 
         $("#enviar").click(function(event) {
           event.preventDefault();
-          
-          let formValid = true;
-          
-          $("#form input").each(function() {
-            if ($(this).val() === "") {
-              formValid = false;
-              return false;
-            }
-          });
-          
-          if (!formValid) {
-            $("#error-message").text("Preencha todos os campos!");
+          if ($("#nome").val() === "") {
+            $("#error-message").text("Preencha o nome!"); // Display error message
             return false;
           } else {
-            $("#error-message").text("");
+            $("#error-message").text(""); // Clear the error message if the name is valid
           }
         });
       });
-
     </script>
   </head>
   <body>
