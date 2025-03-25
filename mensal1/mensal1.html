@@ -18,7 +18,6 @@
       .grande {width: 400px;}
       .pequeno {width: 100px;}
 
-      table {margin: auto;}
 
       td:first-child {
         text-align: right; 
@@ -40,7 +39,7 @@
       $(document).ready(function() {
         $("#limpar").click(function() {
           event.preventDefault();
-          $("#form").hide()
+          $("#form").trigger("reset");
         });
       });
     </script>
@@ -87,7 +86,6 @@
         <tr>
           <td><button id="enviar" class="submit-btn" type="submit">Enviar</button></td>
           <td><button id="limpar">Limpar</button></td>
-          <td><button id="test">Test</button></td>
         </tr>
 
       </table>
