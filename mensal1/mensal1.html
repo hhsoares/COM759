@@ -35,13 +35,34 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script> 
       console.log("Script Carregado");
-
       $(document).ready(function() {
-        $("#limpar").click(function() {
+        $("#limpar").click(function(event) {
           event.preventDefault();
           $("#form").trigger("reset");
+          $("#error-message").text("");
+        });
+
+        $("#enviar").click(function(event) {
+          event.preventDefault();
+          
+          let formValid = true;
+          
+          $("#form input").each(function() {
+            if ($(this).val() === "") {
+              formValid = false;
+              return false;
+            }
+          });
+          
+          if (!formValid) {
+            $("#error-message").text("Preencha todos os campos!");
+            return false;
+          } else {
+            $("#error-message").text("");
+          }
         });
       });
+
     </script>
   </head>
   <body>
@@ -90,5 +111,6 @@
 
       </table>
     </form>
+    <p id="error-message" style="color: red;"></p>
   </body>
 </html>
