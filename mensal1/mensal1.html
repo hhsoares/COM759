@@ -6,7 +6,7 @@
     <title>Mensal 1 - Programação Avançada</title>
     <style>
       body {
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: Arial;
         font-weight: bold;
         color: green;
       }
@@ -15,8 +15,9 @@
         font-family: 'Courier New', Courier, monospace;
       }
 
-      .grande {width: 400px;}
-      .pequeno {width: 100px;}
+      .grande {width: 410px;}
+      .medio {width: 210px;}
+      .pequeno {width: 70px;}
 
       table {margin: auto;}
 
@@ -33,10 +34,13 @@
 
       #error-message {
         color: red;
-        margin-top: 5%;
-        margin-left: auto;
-        margin-right: auto;
-        width: 50%;
+        margin: 0;
+        padding: 10px 0;
+        width: 100%;
+        text-align: center;
+        height: 40px;
+        position: relative;
+        top: 20px;
       }
 
       button {font-weight: bold;}
@@ -127,7 +131,6 @@
           } else {
             $("#error-message").text("");
             
-            // Collect form data
             var formData = {
               nome: $("#nome").val(),
               cpf: $("#cpf").val(),
@@ -138,19 +141,15 @@
               senha: $("#senha").val()
             };
 
-            // Log the JSON data to the console
-            console.log("Form Data as JSON:", JSON.stringify(formData));
-    
-            // Enviar os dados via AJAX para o JSONPlaceholder
             $.ajax({
-              url: "https://jsonplaceholder.typicode.com/posts", // URL do JSONPlaceholder
+              url: "https://jsonplaceholder.typicode.com/posts",
               type: "POST",
-              data: JSON.stringify(formData), // Envia os dados como JSON
-              contentType: "application/json", // Define o tipo de conteúdo como JSON
+              data: JSON.stringify(formData),
+              contentType: "application/json",
               success: function(response) {
                 console.log("Dados enviados com sucesso:", response);
-                $("#error-message").text(""); // Limpa a mensagem de erro
-                alert("Form submitted successfully!");  // Alerta de sucesso
+                $("#error-message").text("");
+                alert("Formulário enviado com sucesso!");
               },
               error: function(xhr, status, error) {
                 console.log("Erro ao enviar os dados:", error);
@@ -166,47 +165,38 @@
   <body>
     <form id="form">
       <table>
-
         <tr>
           <td>Nome:</td>
           <td><input id="nome" class="grande" type="text"></td>
         </tr>
-
         <tr>
           <td>CPF:</td>
-          <td><input id="cpf" type="text"></td>
+          <td><input id="cpf" class="medio" type="text"></td>
         </tr>
-
         <tr>
           <td>RG:</td>
-          <td><input id="rg" type="text"></td>
+          <td><input id="rg" class="medio "type="text"></td>
         </tr>
-
         <tr>
           <td>Ano entrada:</td>
           <td><input id="ano_entrada" class="pequeno" type="text"></td>
         </tr>
-
         <tr>
           <td>Ano saída:</td>
           <td><input id="ano_saida" class="pequeno" type="text"></td>
         </tr>
-
         <tr>
           <td>E-mail:</td>
           <td><input id="email" class="grande" type="text"></td>
         </tr>
-
         <tr>
           <td>Senha:</td>
-          <td><input id="senha" type="password"></td>
+          <td><input id="senha" class="medio" type="password"></td>
         </tr>
-
         <tr>
           <td><button id="enviar" class="submit-btn" type="submit">Enviar</button></td>
           <td><button id="limpar">Limpar</button></td>
         </tr>
-
       </table>
     </form>
     <p id="error-message"></p>
