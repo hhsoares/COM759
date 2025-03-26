@@ -39,7 +39,7 @@
         width: 50%;
       }
 
-      button{font-weight: bold;}
+      button {font-weight: bold;}
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
@@ -126,6 +126,36 @@
             $("#error-message").html(errorMessage);
           } else {
             $("#error-message").text("");
+            
+            // Collect form data
+            var formData = {
+              nome: $("#nome").val(),
+              cpf: $("#cpf").val(),
+              rg: $("#rg").val(),
+              ano_entrada: $("#ano_entrada").val(),
+              ano_saida: $("#ano_saida").val(),
+              email: $("#email").val(),
+              senha: $("#senha").val()
+            };
+
+            // Log the JSON data to the console
+            console.log("Form Data as JSON:", JSON.stringify(formData));
+    
+            // Enviar os dados via AJAX para o JSONPlaceholder
+            $.ajax({
+              url: "https://jsonplaceholder.typicode.com/posts", // URL do JSONPlaceholder
+              type: "POST",
+              data: JSON.stringify(formData), // Envia os dados como JSON
+              contentType: "application/json", // Define o tipo de conteúdo como JSON
+              success: function(response) {
+                console.log("Dados enviados com sucesso:", response);
+                $("#error-message").text(""); // Limpa a mensagem de erro
+                alert("Form submitted successfully!");  // Alerta de sucesso
+              },
+              error: function(xhr, status, error) {
+                console.log("Erro ao enviar os dados:", error);
+              }
+            });
           }
     
           return isValid;
@@ -183,8 +213,3 @@
   </body>
 </html>
 
-<!--
-
-teste!
-
--->
