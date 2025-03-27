@@ -1,0 +1,29 @@
+check:
+  nome: 
+    se tiver vazio
+
+  cpf: 
+    se tiver vazio
+
+  rg: 
+    se tiver vazio
+
+  ano entrada:
+    se tiver vazio
+    só possuir numeros
+    nao ser posterior a 2025
+    nao ser posterior ao ano de saida
+
+  ano saida:
+    só possuir numeros
+    nao ser posterior a 2025
+
+  email:
+    se tiver vazio
+    só possuir letras
+    possuir @ e depois dele pelo menos duas palavras separadas por ponto
+
+  senha:
+    se tiver vazio
+    possuir pelo menos 12 caracteres
+    possuir pelo menos um digito numerico, caractere especial, letra maiuscula
